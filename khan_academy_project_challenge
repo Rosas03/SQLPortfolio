@@ -1,0 +1,23 @@
+/*In this project, you’re going to make your own table with some small set of “famous people”, then make more tables about things they do and join those to create nice human readable lists.
+
+For example, here are types of famous people and the questions your data could answer:
+
+Movie stars: What movies are they in? Are they married to each other?
+Singers: What songs did they write? Where are they from?
+Authors: What books did they write?
+Fictional characters: How are they related to other characters? What books do they show up in?*/
+
+CREATE TABLE spiderman ( id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER);
+INSERT INTO spiderman ( name, age) VALUES ("TOM",26);
+INSERT INTO spiderman ( name, age) VALUES ("TOBEY",47);
+INSERT INTO spiderman ( name, age) VALUES ("ANDREW",39);
+
+CREATE TABLE movies ( id INTEGER PRIMARY KEY AUTOINCREMENT, actor_id INTEGER, title TEXT);
+INSERT INTO movies (actor_id, title) VALUES (1, "NO Way Home");
+INSERT INTO movies (actor_id, title) VALUES (2, "Spiderman 3");
+INSERT INTO movies (actor_id, title) VALUES (3, "The Amazing Spiderman");
+
+SELECT name, title
+FROM spiderman
+JOIN movies
+On movies.actor_id = spiderman.id
